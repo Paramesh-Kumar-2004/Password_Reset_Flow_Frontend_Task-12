@@ -20,58 +20,63 @@ const Register = () => {
 
                 <form>
 
-                    <h3 className="text-pink-500 text-2xl font-extrabold italic mb-6">
+                    <h3 className="text-[#00CFFF] text-2xl font-extrabold italic mb-6">
                         Register
                     </h3>
 
                     <div>
-                        <label className="block text-left text-pink-700 font-bold text-lg mb-1">
+                        <label className="block text-left text-[#00CFFF] font-bold text-lg mb-1">
                             Name :
                         </label>
                         <input
                             type="text"
                             placeholder="Enter Your Name"
-                            className="w-full p-3 mb-4 bg-black/70 border-4 border-sky-400 rounded-2xl text-rose-300 font-bold text-base outline-none"
+                            className="w-full p-3 mb-4 bg-black/70 border-4 border-sky-400 rounded-xl text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-left text-pink-700 font-bold text-lg mb-1">
+                        <label className="block text-left text-[#00CFFF] font-bold text-lg mb-1">
                             Email :
                         </label>
                         <input
                             type="email"
                             placeholder="Enter Your Email"
-                            className="w-full p-3 mb-4 bg-black/70 border-4 border-sky-400 rounded-2xl text-rose-300 font-bold text-base outline-none"
+                            className="w-full p-3 mb-4 bg-black/70 border-4 border-sky-400 rounded-xl text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-left text-pink-700 font-bold text-lg mb-1">
+                        <label className="block text-left text-[#00CFFF] font-bold text-lg mb-1">
                             Password :
                         </label>
 
                         <input
                             type="password"
                             placeholder="Enter Your Password"
-                            className="w-full p-3 bg-black/70 border-4 border-sky-400 rounded-2xl text-rose-300 font-bold text-base outline-none"
+                            className="w-full p-3 bg-black/70 border-4 border-sky-400 rounded-xl text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
 
-                        <p className="mt-1 text-right text-pink-700 font-bold text-sm cursor-pointer transition text-shadow hover:text-pink-400">
+                        <p className="mt-1 text-right text-[#00E5FF] font-bold text-sm cursor-pointer transition text-shadow hover:text-sky-400">
                             🤫 Hide Password
                         </p>
                     </div>
 
-                    <Link
-                        to="/login"
-                        className="inline-block mt-3 font-bold text-lg px-2 py-1 rounded transition text-pink-600 hover:text-pink-500"
-                    >
-                        Login Now
-                    </Link>
+                    <div className="flex justify-center items-center">
+                        <h1 className='text-gray-700 font-semibold'>
+                            Do You Have An Account ?
+                        </h1>
+                        <Link
+                            to="/login"
+                            className="inline-block font-bold text-lg px-2 py-1 rounded transition text-[rgba(0,207,255,0.8)] hover:text-sky-600"
+                        >
+                            Login Now
+                        </Link>
+                    </div>
 
                     <button
                         type="button"
-                        className="mt-4 w-full py-3 bg-indigo-500 text-white text-lg rounded hover:bg-indigo-700 hover:scale-105 transition"
+                        className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-xl hover:scale-105 transition cursor-pointer"
                     >
                         Register
                     </button>

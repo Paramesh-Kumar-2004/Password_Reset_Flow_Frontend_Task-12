@@ -17,7 +17,7 @@ const Login = () => {
 
             <div className="absolute inset-0 bg-black/10"></div>
 
-            <div className="relative z-10 w-full max-w-md bg-black/10 border border-black/10 shadow-[0_0_10px_rgba(0,0,0,0.8)] rounded-lg p-8 text-center backdrop-blur-sm">
+            <div className="relative z-10 w-full max-w-md bg-black/10 border border-black/10 shadow-[0_0_10px_rgba(0,0,0,0.8)] rounded-lg p-8 text-center">
 
                 <form>
 
@@ -26,7 +26,7 @@ const Login = () => {
                     </h3>
 
                     <div>
-                        <label className="block text-left text-white font-bold text-lg mb-1">
+                        <label className="block text-left text-sky-200 font-bold text-lg mb-1">
                             Email :
                         </label>
                         <input
@@ -51,14 +51,19 @@ const Login = () => {
                         </z>
                     </div>
 
-                    <div className="flex justify-around items-center pb-4 mt-2">
-                        <a
-                            href="/register"
+
+                    <div className="flex justify-center items-center">
+                        <h1 className='text-[#E0E0E0] font-semibold'>
+                            Don't Have An Account ?
+                        </h1>
+                        <Link
+                            to="/register"
                             className="text-purple-700 font-bold text-lg px-2 py-1 rounded transition hover:scale-125 hover:text-yellow-400"
                         >
                             Register Now
-                        </a>
+                        </Link>
                     </div>
+
 
                     <button
                         type="button"
