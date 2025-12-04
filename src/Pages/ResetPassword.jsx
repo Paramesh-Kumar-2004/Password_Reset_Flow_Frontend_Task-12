@@ -3,7 +3,9 @@ import Car2 from "../assets/Car_Images_2.jpg"
 import { Link } from 'react-router'
 
 
+
 const ResetPassword = () => {
+
     return (
         <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
 
@@ -25,11 +27,11 @@ const ResetPassword = () => {
 
                     <div>
                         <label className="block text-left text-[#00CFFF] font-bold text-lg mb-1">
-                            Email :
+                            Password :
                         </label>
                         <input
-                            type="email"
-                            placeholder="Enter Your Email"
+                            type="password"
+                            placeholder="Enter Your New Password"
                             className="w-full p-3 mb-4 bg-black/40 border-[3px] border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
                     </div>
@@ -38,25 +40,11 @@ const ResetPassword = () => {
                         Do not worry! We will send you an email to reset your password.
                     </div> */}
 
-
-                    <div className="flex justify-center items-center">
-                        <h1 className='text-gray-300 font-bold'>
-                            Remembered Your Password ?
-                        </h1>
-
-                        <Link
-                            to="/login"
-                            className="inline-block font-bold text-lg px-2 py-1 rounded transition hover:scale-110 text-[rgba(0,207,255,0.8)] hover:text-sky-600"
-                        >
-                            Login Now
-                        </Link>
-                    </div>
-
                     <button
                         type="button"
                         className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer"
                     >
-                        Send Reset Link
+                        Reset Password
                     </button>
 
                 </form>

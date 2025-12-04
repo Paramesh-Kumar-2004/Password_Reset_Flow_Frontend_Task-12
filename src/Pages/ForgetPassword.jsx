@@ -21,7 +21,7 @@ const ForgetPassword = () => {
                 <form>
 
                     <h3 className="text-[#00CFFF] text-2xl font-extrabold italic mb-6">
-                        Reset Password
+                        Forget Password
                     </h3>
 
                     <div>
