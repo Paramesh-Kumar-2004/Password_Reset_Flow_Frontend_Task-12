@@ -26,39 +26,39 @@ const Login = () => {
                     </h3>
 
                     <div>
-                        <label className="block text-left text-sky-200 font-bold text-lg mb-1">
+                        <label className="block text-left text-[#FF00CC] font-bold text-lg mb-1">
                             Email :
                         </label>
                         <input
                             type="email"
                             placeholder="Enter Your Email"
-                            className="w-full p-3 mb-4 bg-black/70 border-[3px] border-sky-400 rounded text-cyan-300 font-bold text-base outline-none"
+                            className="w-full p-3 mb-4 bg-black/70 border-[3px] border-pink-600 rounded text-[rgba(255,0,204,0.9)] font-bold text-base outline-none"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-left text-white font-bold text-lg mb-1">
+                        <label className="block text-left text-[#FF00CC] font-bold text-lg mb-1">
                             Password :
                         </label>
                         <input
                             type="password"
                             placeholder="Enter Your Password"
-                            className="w-full p-3 bg-black/70 border-[3px] border-sky-400 rounded text-cyan-300 font-bold text-base outline-none"
+                            className="w-full p-3 bg-black/70 border-[3px] border-pink-600 rounded text-[rgba(255,0,204,0.9)] font-bold text-base outline-none"
                         />
 
-                        <z className="block w-full text-right text-white text-sm cursor-pointer transition hover:scale-110 text-shadow">
+                        <z className="block w-full text-right text-[#FF00CC] text-sm cursor-pointer transition hover:scale-110 text-shadow">
                             🤫 Hide Password
                         </z>
                     </div>
 
 
                     <div className="flex justify-center items-center">
-                        <h1 className='text-[#E0E0E0] font-semibold'>
+                        <h1 className='text-white font-semibold'>
                             Don't Have An Account ?
                         </h1>
                         <Link
                             to="/register"
-                            className="text-purple-700 font-bold text-lg px-2 py-1 rounded transition hover:scale-125 hover:text-yellow-400"
+                            className="text-[rgba(255,0,204,0.9)] font-bold text-lg px-2 py-1 rounded transition hover:scale-125 hover:text-yellow-400"
                         >
                             Register Now
                         </Link>
