@@ -19,6 +19,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/forgetpassword' element={<ForgetPassword />} />
 
+          <Route path='*' element={<h1>Not Found</h1>} />
         </Routes>
       </HashRouter>
     </>
