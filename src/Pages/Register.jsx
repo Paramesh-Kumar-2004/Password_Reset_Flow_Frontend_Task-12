@@ -14,7 +14,7 @@ const Register = () => {
                 className="absolute inset-0 w-full h-full object-cover"
             />
 
-            <div className="relative z-10 w-full max-w-md bg-black/30 border-2 border-black/40 shadow-[0_0_10px_rgba(0,0,0,0.8)] rounded-lg p-6 text-center">
+            <div className="relative z-10 w-full max-w-md bg-black/30 border-2 border-[rgb(181,174,166)] shadow-[0_0_10px_rgba(0,0,0,0.8)] rounded-lg p-6 text-center">
 
                 <form>
 
