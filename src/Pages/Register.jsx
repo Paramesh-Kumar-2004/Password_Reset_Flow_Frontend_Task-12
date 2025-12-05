@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import Car3 from "../assets/Car_Images_3.jpg"
 import { Link } from 'react-router'
-import { API } from '../API/api'
+import { API, registerAPI } from '../API/api'
 
 
 
@@ -27,18 +27,16 @@ const Register = () => {
         e.preventDefault();
         console.log("Register : Handle Submit")
         try {
-            const response = await API.post("/user/register", userData)
-            toast.success(response.message, {
+            const response = await registerAPI(userData);
+            toast.success(response.data.message, {
                 position: "top-center",
-                autoClose: 2000
-            })
+                autoClose: 2000,
+            });
         } catch (error) {
-            console.log(error)
-            toast.error(error.response.data.message, {
+            toast.error(error.response?.data?.message || "Something went wrong!", {
                 position: "top-center",
-                autoClose: 2000
-            })
-            console.log("error")
+                autoClose: 2000,
+            });
         }
     }
 
