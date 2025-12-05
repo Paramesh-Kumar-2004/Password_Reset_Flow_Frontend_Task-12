@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import Car3 from "../assets/Car_Images_3.jpg"
 import { Link } from 'react-router'
+import { registerUser } from '../API/api'
 
 
 
 const Register = () => {
 
+    const [viewPassword, setViewPassword] = useState(false);
     const [userData, setUserData] = useState({
-        userName: "",
-        email: "",
-        password: ""
+        userName: "VP",
+        email: "vp@gmail.com",
+        password: "2004"
     })
 
     const HandleOnChange = async (e) => {
@@ -20,9 +23,23 @@ const Register = () => {
         });
     }
 
-    const HandleSubmit = (e) => {
+    const HandleSubmit = async (e) => {
         e.preventDefault();
-        console.log(userData)
+        console.log("Register : Handle Submit")
+        try {
+            const response = await registerUser(userData)
+            toast.success(response.message, {
+                position: "top-center",
+                autoClose: 2000
+            })
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message, {
+                position: "top-center",
+                autoClose: 2000
+            })
+            console.log("error")
+        }
     }
 
 
@@ -79,18 +96,21 @@ const Register = () => {
                         </label>
 
                         <input
-                            type="password"
+                            type={viewPassword ? "text" : "password"}
                             placeholder="Enter Your Password"
-                            name='password'
+                            name="password"
                             value={userData.password}
                             required
                             onChange={(e) => HandleOnChange(e)}
                             className="w-full p-3 bg-black/40 border-4 border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
 
-                        <p className="mt-1 text-right text-[#00E5FF] font-bold text-sm cursor-pointer transition text-shadow hover:text-sky-400">
-                            🤫 Hide Password
-                        </p>
+                        <div className="mt-1 text-right text-[#00E5FF] font-bold text-sm cursor-pointer transition text-shadow hover:text-sky-400">
+                            <span onClick={() => setViewPassword(!viewPassword)}>
+                                {viewPassword ? "Hide Password" : "Show Password"}
+                            </span>
+                        </div>
+
                     </div>
 
                     <div className="flex justify-center items-center mt-1">
@@ -113,8 +133,8 @@ const Register = () => {
                     </button>
 
                 </form>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
