@@ -27,15 +27,14 @@ const Register = () => {
         e.preventDefault();
         console.log("Register : Handle Submit")
         try {
-            const response = await API.post("user/register", userData)
-            console.log("Res :", response)
+            const response = await API.post("/user/register", userData)
             toast.success(response.message, {
                 position: "top-center",
                 autoClose: 2000
             })
         } catch (error) {
             console.log(error)
-            toast.error(error.message, {
+            toast.error(error.response.data.message, {
                 position: "top-center",
                 autoClose: 2000
             })

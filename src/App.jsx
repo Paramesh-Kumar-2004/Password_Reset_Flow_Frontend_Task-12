@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { HashRouter, Routes, Route } from 'react-router'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
 import Home from './Pages/Home'
