@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Car3 from "../assets/Car_Images_3.jpg"
 import { Link } from 'react-router'
 
 
 
 const Register = () => {
+
+    const [userData, setUserData] = useState({
+        userName: "",
+        email: "",
+        password: ""
+    })
+
+    const HandleOnChange = async (e) => {
+        const { name, value } = e.target;
+        setUserData({
+            ...userData,
+            [name]: value
+        });
+    }
+
+    const HandleSubmit = (e) => {
+        e.preventDefault();
+        console.log(userData)
+    }
+
+
     return (
         <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
 
@@ -16,7 +37,7 @@ const Register = () => {
 
             <div className="relative z-10 w-full max-w-md bg-black/30 border-2 border-[rgb(181,174,166)] shadow-[0_0_10px_rgba(0,0,0,0.8)] rounded-lg p-6 text-center">
 
-                <form>
+                <form onSubmit={HandleSubmit}>
 
                     <h3 className="text-[#00CFFF] text-2xl font-extrabold italic mb-2">
                         Register
@@ -29,6 +50,10 @@ const Register = () => {
                         <input
                             type="text"
                             placeholder="Enter Your Name"
+                            name='userName'
+                            value={userData.userName}
+                            onChange={(e) => HandleOnChange(e)}
+                            required
                             className="w-full p-3 mb-4 bg-black/40 border-4 border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
                     </div>
@@ -40,6 +65,10 @@ const Register = () => {
                         <input
                             type="email"
                             placeholder="Enter Your Email"
+                            name='email'
+                            value={userData.email}
+                            required
+                            onChange={(e) => HandleOnChange(e)}
                             className="w-full p-3 mb-4 bg-black/40 border-4 border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
                     </div>
@@ -52,6 +81,10 @@ const Register = () => {
                         <input
                             type="password"
                             placeholder="Enter Your Password"
+                            name='password'
+                            value={userData.password}
+                            required
+                            onChange={(e) => HandleOnChange(e)}
                             className="w-full p-3 bg-black/40 border-4 border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
 
@@ -73,7 +106,7 @@ const Register = () => {
                     </div>
 
                     <button
-                        type="button"
+                        type="submit"
                         className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer"
                     >
                         Register

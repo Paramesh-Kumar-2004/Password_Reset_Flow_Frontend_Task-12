@@ -59,7 +59,7 @@ const Login = () => {
                             </h1>
                             <Link
                                 to="/forgetpassword"
-                                className="ml-2 font-bold text-lg px-2 py-1 rounded transition text-[rgba(0,207,255,0.8)] hover:text-rose-600"
+                                className="ml-2 font-bold text-lg px-2 py-1 rounded transition text-red-700 hover:text-red-600"
                             >
                                 Reset Here
                             </Link>
