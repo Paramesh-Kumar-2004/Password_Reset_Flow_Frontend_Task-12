@@ -1,10 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Car2 from "../assets/Car_Images_2.jpg"
 import { Link } from 'react-router'
+import { ForgetUserPassword } from '../API/api';
+import { toast } from 'react-toastify';
 
 
 
 const ForgetPassword = () => {
+
+    const [email, setEmail] = useState("");
+
+    const HandleForgetSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await ForgetUserPassword({ email });
+            toast.success("Password reset link sent to your email!", {
+                position: "top-center",
+                autoClose: 2000,
+                draggable: true,
+                theme: "dark",
+            });
+            console.log("Password reset link sent:", response.data);
+        } catch (error) {
+            console.error("Error sending password reset link:", error);
+            toast.error("Failed to send password reset link. Please try again.", {
+                position: "top-center",
+                autoClose: 2000,
+            })
+        }
+    }
+
     return (
         <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
 
@@ -18,7 +43,7 @@ const ForgetPassword = () => {
 
             <div className="relative z-10 w-full max-w-md bg-black/30 border-2 border-cyan-600 shadow-[0_0_10px_rgba(0,0,0,0.8)] rounded-lg p-8 text-center">
 
-                <form>
+                <form onSubmit={HandleForgetSubmit}>
 
                     <h3 className="text-[#00CFFF] text-2xl font-extrabold italic mb-6">
                         Forget Password
@@ -30,6 +55,10 @@ const ForgetPassword = () => {
                         </label>
                         <input
                             type="email"
+                            value={email}
+                            name='email'
+                            required
+                            onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter Your Email"
                             className="w-full p-3 mb-4 bg-black/40 border-[3px] border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
@@ -54,7 +83,7 @@ const ForgetPassword = () => {
                     </div>
 
                     <button
-                        type="button"
+                        type="submit"
                         className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer"
                     >
                         Send Reset Link
