@@ -5,6 +5,12 @@ export const API = axios.create({ baseURL: "http://localhost:2004/api/v1/" });
 
 
 
-export const registerAPI = async (userData) => {
-    return await API.post("/user/register", userData);
+export const RegisterUser = async (userData) => {
+    const response = await API.post("/user/register", userData);
+    return response;
 };
+
+export const Login = async (loginData) => {
+    const response = await API.post("/user/login", loginData);
+    return response;
+}

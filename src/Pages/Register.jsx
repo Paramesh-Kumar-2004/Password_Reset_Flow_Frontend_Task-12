@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import Car3 from "../assets/Car_Images_3.jpg"
 import { Link } from 'react-router'
-import { API, registerAPI } from '../API/api'
+import { RegisterUser } from '../API/api'
 
 
 
@@ -27,7 +27,8 @@ const Register = () => {
         e.preventDefault();
         console.log("Register : Handle Submit")
         try {
-            const response = await registerAPI(userData);
+            const response = await RegisterUser(userData);
+
             toast.success(response.data.message, {
                 position: "top-center",
                 autoClose: 2000,
