@@ -10,7 +10,7 @@ export const RegisterUser = async (userData) => {
     return response;
 };
 
-export const Login = async (loginData) => {
+export const LoginUser = async (loginData) => {
     const response = await API.post("/user/login", loginData);
     return response;
 }

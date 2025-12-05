@@ -25,7 +25,6 @@ const Register = () => {
 
     const HandleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Register : Handle Submit")
         try {
             const response = await RegisterUser(userData);
 

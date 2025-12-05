@@ -1,10 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Car1 from "../assets/Car_Images_1.jpg"
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
+import { LoginUser } from '../API/api'
+import { toast } from 'react-toastify'
 
 
 
 const Login = () => {
+
+    const navigate = useNavigate();
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: ""
+    });
+
+    const HandleOnChange = (e) => {
+        const { name, value } = e.target;
+        setLoginData({
+            ...loginData,
+            [name]: value
+        });
+    }
+
+    const HandleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await LoginUser(loginData);
+            console.log("Login Response :", response);
+            toast.success(response.data.message, {
+                position: "top-center",
+                autoClose: 2000,
+            });
+
+            if (response.status === 200) {
+                navigate("/")
+            }
+
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Something went wrong!", {
+                position: "top-center",
+                autoClose: 2000,
+            });
+        }
+    }
+
     return (
 
         <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
@@ -19,7 +58,7 @@ const Login = () => {
 
             <div className="relative z-10 w-full max-w-md bg-black/30 border-2 border-cyan-600 shadow-[0_0_10px_rgba(0,0,0,0.8)] rounded-lg p-8 text-center">
 
-                <form>
+                <form onSubmit={HandleSubmit}>
 
                     <h3 className="text-[#00CFFF] text-2xl font-extrabold italic mb-6">
                         Login
@@ -31,7 +70,11 @@ const Login = () => {
                         </label>
                         <input
                             type="email"
+                            value={loginData.email}
+                            name='email'
                             placeholder="Enter Your Email"
+                            required
+                            onChange={(e) => HandleOnChange(e)}
                             className="w-full p-3 mb-4 bg-black/40 border-[3px] border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
                     </div>
@@ -42,7 +85,11 @@ const Login = () => {
                         </label>
                         <input
                             type="password"
+                            value={loginData.password}
+                            name='password'
                             placeholder="Enter Your Password"
+                            required
+                            onChange={(e) => HandleOnChange(e)}
                             className="w-full p-3 bg-black/50 border-[3px] border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
 
@@ -78,7 +125,7 @@ const Login = () => {
                     </div>
 
                     <button
-                        type="button"
+                        type="submit"
                         className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer"
                     >
                         Login
