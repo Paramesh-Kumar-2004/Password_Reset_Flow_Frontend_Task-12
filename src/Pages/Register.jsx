@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import Car3 from "../assets/Car_Images_3.jpg"
 import { Link } from 'react-router'
-import { API } from '../API/api.js'
+import { API } from '../API/api'
 
 
 
@@ -24,22 +24,22 @@ const Register = () => {
     }
 
     const HandleSubmit = async (e) => {
+        e.preventDefault();
+        console.log("Register : Handle Submit")
         try {
-            e.preventDefault();
-            console.log("Register : Handle Submit")
-            const response = await API.post("/user/register", userData)
+            const response = await API.post("user/register", userData)
             console.log("Res :", response)
-            // toast.success(response.message, {
-            //     position: "top-center",
-            //     autoClose: 2000
-            // })
+            toast.success(response.message, {
+                position: "top-center",
+                autoClose: 2000
+            })
         } catch (error) {
-            // console.log(error)
-            // toast.error(error.message, {
-            //     position: "top-center",
-            //     autoClose: 2000
-            // })
-            console.log("error", error)
+            console.log(error)
+            toast.error(error.message, {
+                position: "top-center",
+                autoClose: 2000
+            })
+            console.log("error")
         }
     }
 
