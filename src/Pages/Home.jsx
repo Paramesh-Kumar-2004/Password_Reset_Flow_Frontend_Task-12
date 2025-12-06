@@ -3,6 +3,10 @@ import { Link } from 'react-router'
 
 const Home = () => {
 
+    useEffect(() => {
+        
+    },[])
+
     return (
         <div>
             <h1>Home</h1>
