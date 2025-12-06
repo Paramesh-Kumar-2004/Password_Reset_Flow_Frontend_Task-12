@@ -22,6 +22,6 @@ export const ForgetUserPassword = async (email) => {
 }
 
 export const ResetUserPassword = async (id, token, password) => {
-    const response = await API.post(`/user/resetpassword/${id}/${token}`, password);
+    const response = await API.put(`/user/resetpassword/${id}/${token}`, password);
     return response;
 }

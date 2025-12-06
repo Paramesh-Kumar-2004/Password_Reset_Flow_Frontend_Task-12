@@ -22,13 +22,10 @@ const ResetPassword = () => {
         try {
             const response = await ResetUserPassword(id, token, { resetPassword });
 
-            console.log(response)
-
             toast.success(response.data.message, {
                 position: "top-center",
                 autoClose: 2000,
             });
-
 
         } catch (error) {
             toast.error("Error in Resetting Password")
