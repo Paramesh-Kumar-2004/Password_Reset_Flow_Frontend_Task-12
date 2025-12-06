@@ -16,6 +16,12 @@ export const LoginUser = async (loginData) => {
 }
 
 
+export const GetUserDetail = async () => {
+    const response = await API.get("/user/getuser")
+    return response
+}
+
+
 export const ForgetUserPassword = async (email) => {
     const response = await API.post("/user/forgetpassword", email);
     return response;
