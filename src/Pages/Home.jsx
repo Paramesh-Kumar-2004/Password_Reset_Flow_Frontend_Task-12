@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router'
 
 const Home = () => {
+
     return (
         <div>
             <h1>Home</h1>

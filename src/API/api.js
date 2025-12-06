@@ -20,3 +20,8 @@ export const ForgetUserPassword = async (email) => {
     const response = await API.post("/user/forgetpassword", email);
     return response;
 }
+
+export const ResetUserPassword = async (id, token, password) => {
+    const response = await API.post(`/user/resetpassword/${id}/${token}`, password);
+    return response;
+}

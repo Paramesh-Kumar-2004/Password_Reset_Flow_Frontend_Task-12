@@ -18,7 +18,7 @@ function App() {
       <HashRouter>
         <ToastContainer />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={ <Home />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
           <Route path='/forgetpassword' element={<ForgetPassword />} />

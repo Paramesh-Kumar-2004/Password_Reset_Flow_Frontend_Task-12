@@ -1,10 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Car2 from "../assets/Car_Images_2.jpg"
-import { Link } from 'react-router'
+import { Link, useParams } from 'react-router'
+import { toast } from 'react-toastify';
+import { ResetUserPassword } from '../API/api.js';
 
 
 
 const ResetPassword = () => {
+
+    const { id, token } = useParams();
+    const [resetPassword, setResetPassword] = useState("")
+
+
+    const Onchange = async (e) => {
+        setResetPassword(e.target.value)
+    }
+
+    const HandleSubmit = async (e) => {
+        console.log("Entered Handle Submit")
+        e.preventDefault();
+        try {
+            const response = await ResetUserPassword(id, token, { resetPassword });
+
+            console.log(response)
+
+            toast.success(response.data.message, {
+                position: "top-center",
+                autoClose: 2000,
+            });
+
+
+        } catch (error) {
+            toast.error("Error in Resetting Password")
+        }
+    }
 
     return (
         <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
@@ -19,7 +48,7 @@ const ResetPassword = () => {
 
             <div className="relative z-10 w-full max-w-md bg-black/30 border-2 border-cyan-600 shadow-[0_0_10px_rgba(0,0,0,0.8)] rounded-lg p-8 text-center">
 
-                <form>
+                <form onSubmit={HandleSubmit}>
 
                     <h3 className="text-[#00CFFF] text-2xl font-extrabold italic mb-6">
                         Reset Password
@@ -32,6 +61,9 @@ const ResetPassword = () => {
                         <input
                             type="password"
                             placeholder="Enter Your New Password"
+                            required
+                            value={resetPassword}
+                            onChange={(e) => Onchange(e)}
                             className="w-full p-3 mb-4 bg-black/40 border-[3px] border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
                     </div>
@@ -41,7 +73,7 @@ const ResetPassword = () => {
                     </div> */}
 
                     <button
-                        type="button"
+                        type="submit"
                         className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer"
                     >
                         Reset Password
