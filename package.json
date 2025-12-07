@@ -1,4 +1,5 @@
 {
+  "homepage": "https://paramesh-kumar-2004.github.io/Password_Reset_Flow_Frontend_Task-12/",
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
@@ -7,11 +8,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
     "axios": "^1.13.2",
+    "gh-pages": "^6.3.0",
     "react": "^19.2.0",
     "react-router-dom": "^7.10.1",
     "react-toastify": "^11.0.5",

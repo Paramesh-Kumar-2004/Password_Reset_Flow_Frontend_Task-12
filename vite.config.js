@@ -8,7 +8,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: "/PasswordReset/"
+  base: "/Password_Reset_Flow_Frontend_Task-12/"
 })
-
 

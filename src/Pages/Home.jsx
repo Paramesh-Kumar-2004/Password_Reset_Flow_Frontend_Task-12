@@ -12,10 +12,6 @@ const Home = () => {
     const [role, setRole] = useState(localStorage.getItem("role") || "normal");
 
 
-    useEffect(() => {
-
-    }, [])
-
     const fetchUsers = async () => {
         try {
             const response = await GetUserDetail()
