@@ -11,6 +11,8 @@ const Login = () => {
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth") || false);
+    const [role, setRole] = useState(localStorage.getItem("role") || "normal");
+
 
     const [loginData, setLoginData] = useState({
         email: "svpparameshkumar2004@gmail.com",
@@ -36,6 +38,9 @@ const Login = () => {
                 autoClose: 2000,
             });
 
+            localStorage.setItem("isAuth", response.data.isAuth);
+            localStorage.setItem("role", response.data.role)
+
             if (response.status === 200) {
                 navigate("/")
             }
@@ -47,7 +52,6 @@ const Login = () => {
             });
         }
         finally {
-            localStorage.setItem("isAuth", true);
             setIsLoading(false);
         }
     }

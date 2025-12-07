@@ -9,6 +9,7 @@ import { RegisterUser } from '../API/api'
 const Register = () => {
 
     const [viewPassword, setViewPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [userData, setUserData] = useState({
         userName: "VP",
         email: "vp@gmail.com",
@@ -26,6 +27,7 @@ const Register = () => {
     const HandleSubmit = async (e) => {
         e.preventDefault();
         try {
+            setIsLoading(true);
             const response = await RegisterUser(userData);
 
             toast.success(response.data.message, {
@@ -37,6 +39,8 @@ const Register = () => {
                 position: "top-center",
                 autoClose: 2000,
             });
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -125,7 +129,8 @@ const Register = () => {
 
                     <button
                         type="submit"
-                        className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer"
+                        disabled={isLoading}
+                        className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer disabled:bg-red-900 disabled:text-white disabled:cursor-not-allowed disabled:hover:scale-100 font-bold"
                     >
                         Register
                     </button>
