@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const API = axios.create({
-    baseURL: "http://localhost:2004/api/v1/",
+    baseURL: "https://password-reset-flow-backend-task-12.onrender.com/api/v1/",
     withCredentials: true
 });
 
