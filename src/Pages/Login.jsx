@@ -139,7 +139,7 @@ const Login = () => {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer disabled:bg-red-900 disabled:text-white disabled:cursor-not-allowed disabled:hover:scale-100 font-bold"
+                        className="mt-4 w-full py-3 bg-blue-900 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer disabled:bg-gray-900 disabled:text-white disabled:cursor-not-allowed disabled:hover:scale-100 font-bold"
                     >
                         Login
                     </button>

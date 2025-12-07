@@ -10,6 +10,8 @@ const ResetPassword = () => {
 
     const { id, token } = useParams();
     const [resetPassword, setResetPassword] = useState("")
+    const [isLoading, setIsLoading] = useState(false);
+
 
 
     const Onchange = async (e) => {
@@ -20,6 +22,7 @@ const ResetPassword = () => {
         console.log("Entered Handle Submit")
         e.preventDefault();
         try {
+            setIsLoading(true);
             const response = await ResetUserPassword(id, token, { resetPassword });
 
             toast.success(response.data.message, {
@@ -29,6 +32,8 @@ const ResetPassword = () => {
 
         } catch (error) {
             toast.error("Error in Resetting Password")
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -71,7 +76,8 @@ const ResetPassword = () => {
 
                     <button
                         type="submit"
-                        className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer"
+                        disabled={isLoading}
+                        className="mt-4 w-full py-3 bg-blue-900 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer disabled:bg-gray-900 disabled:text-white disabled:cursor-not-allowed disabled:hover:scale-100 font-bold"
                     >
                         Reset Password
                     </button>
