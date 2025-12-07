@@ -18,7 +18,6 @@ const Home = () => {
 
             const response = await GetUserDetail()
             setUserDetails(response.data)
-            console.log(userDetails)
 
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong!", {
@@ -32,6 +31,9 @@ const Home = () => {
         <div>
             <h1>Home</h1>
             <Link to={"/register"} >Register Now</Link>
+            <br />
+            <Link to={"/login"} >Login Now</Link>
+            <br />
         </div>
     )
 }

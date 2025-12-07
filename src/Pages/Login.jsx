@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Car1 from "../assets/Car_Images_1.jpg"
 import { Link, useNavigate } from 'react-router'
 import { LoginUser } from '../API/api'
@@ -9,10 +9,14 @@ import { toast } from 'react-toastify'
 const Login = () => {
 
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
+    const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth") || false);
+
     const [loginData, setLoginData] = useState({
-        email: "",
-        password: ""
+        email: "svpparameshkumar2004@gmail.com",
+        password: "2004"
     });
+
 
     const HandleOnChange = (e) => {
         const { name, value } = e.target;
@@ -25,8 +29,8 @@ const Login = () => {
     const HandleSubmit = async (e) => {
         e.preventDefault();
         try {
+            setIsLoading(true);
             const response = await LoginUser(loginData);
-            console.log("Login Response :", response);
             toast.success(response.data.message, {
                 position: "top-center",
                 autoClose: 2000,
@@ -41,6 +45,10 @@ const Login = () => {
                 position: "top-center",
                 autoClose: 2000,
             });
+        }
+        finally {
+            localStorage.setItem("isAuth", true);
+            setIsLoading(false);
         }
     }
 
@@ -126,7 +134,8 @@ const Login = () => {
 
                     <button
                         type="submit"
-                        className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer"
+                        disabled={isLoading}
+                        className="mt-4 w-full py-3 bg-blue-800 text-[#00CFFF] text-lg rounded-lg hover:scale-105 transition cursor-pointer disabled:bg-red-900 disabled:text-white disabled:cursor-not-allowed disabled:hover:scale-100 font-bold"
                     >
                         Login
                     </button>
