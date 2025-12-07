@@ -20,8 +20,8 @@ const Home = () => {
         try {
 
             const response = await GetUserDetail()
+            console.log(response.data.user)
             setUserDetails(response.data.user)
-            console.log(userDetails);
 
         } catch (error) {
             toast.error(error.response?.data?.message || "Something went wrong!", {
@@ -58,13 +58,17 @@ const Home = () => {
             </div>
 
             {role === "admin" && (
-                <div>
-                    <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-                        <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Email :</h5>
-                        <p class="text-body">Role : </p>
-                    </div>
-                </div>
+                userDetails.map((user) => {
+                    return (
+                        <div key={user.email} className='m-2 px-3 bg-black/25 rounded-md justify-between items-center'>
+                            <h1 className="font-bold text-lg py-2">User Name : <span className='text-sky-700'>{user.userName}</span></h1>
+                            <h1 className="font-bold text-lg py-2">Email : <span className='text-sky-700'>{user.email}</span></h1>
+                            <h1 className="font-bold text-lg py-2">Role : <span className='text-sky-700'>{user.role}</span></h1>
+                        </div>
+                    )
+                })
             )}
+
 
         </div>
     )
