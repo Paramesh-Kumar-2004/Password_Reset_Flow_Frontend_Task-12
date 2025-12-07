@@ -18,9 +18,7 @@ const Home = () => {
 
     const fetchUsers = async () => {
         try {
-
             const response = await GetUserDetail()
-            console.log(response.data.user)
             setUserDetails(response.data.user)
 
         } catch (error) {
