@@ -31,7 +31,10 @@ const ResetPassword = () => {
             });
 
         } catch (error) {
-            toast.error("Error in Resetting Password")
+            toast.error(error.response?.data?.message || "Failed to reset password. Please try again.", {
+                position: "top-center",
+                autoClose: 2000,
+            });
         } finally {
             setIsLoading(false)
         }

@@ -24,8 +24,8 @@ const ForgetPassword = () => {
             });
             console.log("Password reset link sent:", response.data);
         } catch (error) {
-            console.error("Error sending password reset link:", error);
-            toast.error("Failed to send password reset link. Please try again.", {
+            console.error(error.response?.data?.message || "Error sending password reset link:", error);
+            toast.error(error.response?.data?.message || "Failed to send password reset link. Please try again.", {
                 position: "top-center",
                 autoClose: 2000,
             })
