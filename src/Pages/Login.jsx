@@ -8,6 +8,7 @@ import { toast } from 'react-toastify'
 
 const Login = () => {
 
+    const [viewPassword, setViewPassword] = useState(false);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth") || false);
@@ -96,7 +97,7 @@ const Login = () => {
                             Password :
                         </label>
                         <input
-                            type="password"
+                            type={viewPassword ? "text" : "password"}
                             value={loginData.password}
                             name='password'
                             placeholder="Enter Your Password"
@@ -105,9 +106,11 @@ const Login = () => {
                             className="w-full p-3 bg-black/50 border-[3px] border-sky-400 rounded-lg text-[rgba(0,207,255,0.8)] font-bold text-base outline-none"
                         />
 
-                        <p className="mt-1 text-right text-[#00E5FF] font-bold text-sm cursor-pointer transition text-shadow hover:text-sky-400">
-                            🤫 Hide Password
-                        </p>
+                        <div className="mt-1 text-right text-[#00E5FF] font-bold text-sm cursor-pointer transition text-shadow hover:text-sky-400">
+                            <span onClick={() => setViewPassword(!viewPassword)}>
+                                {viewPassword ? "Hide Password" : "Show Password"}
+                            </span>
+                        </div>
                     </div>
 
 

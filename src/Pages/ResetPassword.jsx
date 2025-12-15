@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Car2 from "../assets/Car_Images_2.jpg"
-import { Link, useParams } from 'react-router'
+import { Link, useNavigate, useParams } from 'react-router'
 import { toast } from 'react-toastify';
 import { ResetUserPassword } from '../API/api.js';
 
@@ -8,6 +8,7 @@ import { ResetUserPassword } from '../API/api.js';
 
 const ResetPassword = () => {
 
+    const navigate = useNavigate()
     const { id, token } = useParams();
     const [resetPassword, setResetPassword] = useState("")
     const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +38,7 @@ const ResetPassword = () => {
             });
         } finally {
             setIsLoading(false)
+            navigate("/login")
         }
     }
 
