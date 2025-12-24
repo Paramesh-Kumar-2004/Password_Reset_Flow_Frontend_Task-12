@@ -41,13 +41,13 @@ const Home = () => {
                             <div className="text-xs font-bold">Log In</div>
                         </div>
                     </Link>
-                    {role === "admin" && (
+                    {/* {role === "admin" && (
                         <button onClick={fetchUsers} className="w-full sm:w-auto bg-blue-600 hover:bg-sky-700 text-white rounded-md inline-flex items-center justify-center px-4 py-3 cursor-pointer">
                             <div className="text-left rtl:text-right">
                                 <div className="text-xs font-bold">Get Users</div>
                             </div>
                         </button>
-                    )}
+                    )} */}
                 </div>
             </div>
 

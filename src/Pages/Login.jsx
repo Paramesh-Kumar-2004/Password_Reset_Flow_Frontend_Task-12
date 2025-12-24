@@ -114,7 +114,6 @@ const Login = () => {
                         </div>
                     </div>
 
-
                     <div>
                         <div className='flex justify-center items-center'>
                             <h1 className='text-gray-300 font-semibold'>
