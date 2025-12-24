@@ -2,8 +2,8 @@ import axios from "axios";
 
 
 const API = axios.create({
-    baseURL: "http://localhost:2004/api/v1",
-    // baseURL: "https://password-reset-flow-backend-task-12.vercel.app/api/v1",
+    // baseURL: "http://localhost:2004/api/v1",
+    baseURL: "https://password-reset-flow-backend-task-12.vercel.app/api/v1",
     withCredentials: true
 });
 
