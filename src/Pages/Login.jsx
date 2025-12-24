@@ -41,6 +41,7 @@ const Login = () => {
 
             localStorage.setItem("isAuth", response.data.isAuth);
             localStorage.setItem("role", response.data.role)
+            localStorage.setItem("token", response.data.token)
 
             if (response.status === 200) {
                 navigate("/")
